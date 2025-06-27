@@ -1,12 +1,21 @@
+// src/admin/admin.module.ts
+
 import { Module } from '@nestjs/common';
-import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
-import { Roles } from '../entities/Roles';
+import { AdminController } from './admin.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import { CommandeStatutView } from '../entities/commande-statut-view.entity';
+import { Roles } from '../entities/Roles'; 
+
 @Module({
-  imports: [TypeOrmModule.forFeature([Roles])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Roles,                // Nécessaire pour Repository<Roles>
+      CommandeStatutView,   // Nécessaire pour Repository<CommandeStatutView>
+    ]),
+  ],
   controllers: [AdminController],
-  providers: [AdminService]
+  providers: [AdminService],
 })
 export class AdminModule {}

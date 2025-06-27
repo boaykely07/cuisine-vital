@@ -566,7 +566,7 @@ CREATE INDEX idx_livraisons_ind_localisation ON livraisons_individuelles USING G
 CREATE INDEX idx_livraisons_ent_localisation ON livraisons_entreprises USING GIST(localisation);
 
 -- =============================================
--- FONCTIONS ESSENTIELLES
+-- FONCTIONS ESSENTIELLES: 
 -- =============================================
 
 -- Fonction pour calculer le stock total d'un ingrédient
